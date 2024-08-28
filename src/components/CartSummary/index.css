@@ -96,7 +96,7 @@
 
 .popup-container {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(94, 94, 224);
   border-radius: 10px;
 }
 
@@ -107,6 +107,8 @@
 
 .list-of-popup {
   margin: 10px 0;
+  color: white;
+  font-size: 15px;
 }
 
 .summary-container {

@@ -21,12 +21,14 @@ const CartSummary = () => {
   }
 
   return (
+    // access the value from the cartList
     <CartContext.Consumer>
       {value => {
         const {cartList} = value
         let total = 0
+
         cartList.forEach(eachCartItem => {
-          total += eachCartItem.price * eachCartItem.quantity
+          total += eachCartItem.price * eachCartItem.quantity // calculate the total price of the cart list items
         })
 
         return (
@@ -37,11 +39,12 @@ const CartSummary = () => {
                 {total}/-
               </h1>
               <p className="total-items">{cartList.length} Items in cart</p>
+              {/* popup the payment method when the trigger button is clicked */}
               <div>
                 <Popup
                   modal
                   trigger={
-                    <button type="button" className="checkout-button d-sm-none">
+                    <button type="button" className="checkout-button">
                       Checkout
                     </button>
                   }
@@ -55,6 +58,7 @@ const CartSummary = () => {
                       ) : (
                         <>
                           <h2>Select Payment Method</h2>
+                          {/* show the list of payment methods */}
                           <ul className="unorder-list-of-popup">
                             <li className="list-of-popup">
                               <input

@@ -13,6 +13,7 @@ const Header = props => {
   }
 
   const renderCartItemsCount = () => (
+    // access the value form the context
     <CartContext.Consumer>
       {value => {
         const {cartList} = value

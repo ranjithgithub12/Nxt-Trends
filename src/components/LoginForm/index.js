@@ -26,14 +26,18 @@ class LoginForm extends Component {
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
     })
+
+    // replace to the home page if the user enter the correct user name and password
     history.replace('/')
   }
 
+  // show the error message if the user try to login with incorrect name or password
   onSubmitFailure = errorMsg => {
     this.setState({showSubmitError: true, errorMsg})
   }
 
   submitForm = async event => {
+    // prevent the default behaviour in the form event
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
@@ -94,7 +98,7 @@ class LoginForm extends Component {
   render() {
     const {showSubmitError, errorMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
-
+    // redirect to the home page if the user already login.
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }
